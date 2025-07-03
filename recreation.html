@@ -4,41 +4,319 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wafi Syed - Recreation</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<header class="site-header">
+    <style>
+        /* --- CSS Variables for Colors and Spacing (consistent across pages) --- */
+        :root {
+            --primary-bg: #1a1a1a; /* Dark background */
+            --secondary-bg: #2a2a2a; /* Slightly lighter dark for sections */
+            --tertiary-bg: #333333; /* Another slightly lighter dark for contrast */
+            --text-color: #f0f0f0; /* Light text */
+            --accent-color: #007bff; /* A vibrant blue for links/buttons */
+            --hover-color: #0056b3; /* Darker blue for hover states */
+            --border-color: #444; /* Subtle borders */
+
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px; /* For section padding */
+
+            --font-heading: 'Playfair Display', serif; /* For main titles */
+            --font-body: 'Inter', sans-serif; /* For general text */
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg); /* Use primary background color */
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm); /* Horizontal padding for responsiveness */
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-color);
+            margin-top: 0; /* Reset default margins */
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* --- Header (Consistent across pages) --- */
+        .site-header {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .site-logo {
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .site-logo a { /* Ensure logo link is styled like text, not a button */
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .site-logo a:hover {
+            color: var(--accent-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: var(--spacing-xs) 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Buttons (Consistent across pages) --- */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .primary-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .small-btn {
+            padding: 6px 12px;
+            font-size: 0.9em;
+        }
+
+        /* --- Section Styling (Consistent across pages) --- */
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-bg);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary-bg);
+        }
+
+        .bg-tertiary {
+            background-color: var(--tertiary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Recreation Page Specific Styles --- */
+        .recreation-content {
+            padding: var(--spacing-xl) 0; /* Consistent section padding */
+            background-color: var(--primary-bg);
+            text-align: center; /* Center align content */
+        }
+
+        .recreation-content h1 {
+            font-size: 3em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .recreation-content p {
+            max-width: 800px; /* Responsive width for paragraph */
+            margin: 0 auto var(--spacing-lg) auto; /* Center paragraph */
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .recreation-image {
+            max-width: 90%; /* Ensure image scales down */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Consistent rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+            margin-top: var(--spacing-lg); /* Space below title/paragraph */
+            display: block; /* Ensures auto margins work */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* You can set a max-height if the original image is extremely tall */
+        .recreation-image.y { /* Referring to the class 'y' from your original code */
+            max-width: 90%; /* Adjust as needed, e.g., '1000px' if original is that wide */
+            max-height: 800px; /* Limit height for very tall images on larger screens */
+            width: auto; /* Allow width to shrink */
+            object-fit: contain; /* Or 'cover' depending on desired cropping */
+        }
+
+        /* --- Footer (Consistent across pages) --- */
+        .site-footer {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .recreation-content h1 {
+                font-size: 2.5em;
+            }
+
+            .recreation-content p {
+                font-size: 1em;
+                margin: 0 auto var(--spacing-md) auto;
+            }
+
+            .recreation-image.y {
+                width: 95%; /* Make image fill more of the screen on smaller devices */
+                max-width: 95%; /* Adjust for small screen */
+            }
+
+            .section-padding {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-logo {
+                font-size: 1.5em;
+            }
+
+            .recreation-content h1 {
+                font-size: 2em;
+            }
+
+            .recreation-content p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
         <div class="container">
-            <h1 class="site-logo">Wafi Syed</h1>
+            <h1 class="site-logo"><a href="index.html">Wafi Syed</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#intro-section">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="#hobbies">Hobbies</a></li>
-                    <li><a href="#sports">Sports</a></li>
-                    <li><a href="#coding-languages">Coding</a></li>
-                    <li><a href="#other-interests">Life</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html#intro-section">Home</a></li>
+                    <li><a href="index.html#favorite-car">Car</a></li>
+                    <li><a href="index.html#hobbies">Hobbies</a></li>
+                    <li><a href="index.html#sports">Sports</a></li>
+                    <li><a href="index.html#coding-languages">Coding</a></li>
+                    <li><a href="#top-of-page">Life</a></li> <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-<style>
-    body {
-        background-image: url('ziyaratandumrah trip');
-        margin: auto;
-        width:max-content;
-        height: max-content;
-        background-color: #1a1a1a;
-    }
+    <main>
+        <section class="recreation-content" id="top-of-page">
+            <div class="container">
+                <h1>Recreation</h1>
+                <p>This page features moments from my recreational activities and travels.</p>
+                <img class="recreation-image y" src="Untitled design (1).png" alt="A recreational image, possibly from travel or a hobby.">
+            </div>
+        </section>
+    </main>
 
-    .y {
-        border-radius: 50px;
-        margin-top: 100px;
-    }
-</style>
-
-<body>
-    <img class="y" src="Untitled design (1).png">
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wafi Syed. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
