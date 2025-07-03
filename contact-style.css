@@ -1,0 +1,398 @@
+/* --- CSS Variables for Colors and Spacing (consistent with main site) --- */
+:root {
+    --primary-bg: #1a1a1a; /* Dark background */
+    --secondary-bg: #2a2a2a; /* Slightly lighter dark for sections */
+    --tertiary-bg: #333333; /* Another slightly lighter dark for contrast */
+    --text-color: #f0f0f0; /* Light text */
+    --accent-color: #007bff; /* A vibrant blue for links/buttons */
+    --hover-color: #0056b3; /* Darker blue for hover states */
+    --border-color: #444; /* Subtle borders */
+
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 80px; /* For section padding */
+
+    --font-heading: 'Playfair Display', serif; /* For main titles */
+    --font-body: 'Inter', sans-serif; /* For general text */
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); /* Horizontal padding for responsiveness */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    margin-top: 0; /* Reset default margins */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Header (Copied from main site for consistency) --- */
+.site-header {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.site-logo {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.site-logo a { /* Ensure logo link is styled like text, not a button */
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.site-logo a:hover {
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* --- Buttons (Copied from main site for consistency) --- */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 600;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--hover-color);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.small-btn {
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+/* --- Section Styling (Consistent with main site) --- */
+.section-padding {
+    padding: var(--spacing-xl) 0;
+}
+
+.bg-primary {
+    background-color: var(--primary-bg);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-bg);
+}
+
+.bg-tertiary {
+    background-color: var(--tertiary-bg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.subsection-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-color); /* Highlight subsection titles */
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md) auto;
+    font-size: 1.1em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Contact Form Section --- */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--primary-bg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: var(--spacing-sm);
+}
+
+/* --- Contact Details Grid --- */
+.contact-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-item {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.contact-item .fa-solid {
+    font-size: 3em; /* Icon size */
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-item h4 {
+    font-size: 1.5em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-item p {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-item .card-link {
+    font-weight: 600;
+    margin-top: auto; /* Push link to bottom */
+}
+
+/* --- Social Links --- */
+.social-links {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-flex; /* Use flex for centering icon */
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    border-radius: 50%;
+    font-size: 1.8em;
+    margin: 0 var(--spacing-xs);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* --- Footer (Copied from main site for consistency) --- */
+.site-footer {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .subsection-title {
+        font-size: 1.8em;
+    }
+
+    .contact-details-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
+
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .contact-form {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo {
+        font-size: 1.5em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .subsection-title {
+        font-size: 1.6em;
+    }
+
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9em;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+    }
+}

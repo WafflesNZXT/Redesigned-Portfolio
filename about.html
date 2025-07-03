@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wafi Syed - About Me</title>
+    <!-- Google Fonts for consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (if any are used on this page, though not explicitly in your provided snippet) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Variables for Colors and Spacing (consistent with main site) --- */
+        :root {
+            --primary-bg: #1a1a1a; /* Dark background */
+            --secondary-bg: #2a2a2a; /* Slightly lighter dark for sections */
+            --tertiary-bg: #333333; /* Another slightly lighter dark for contrast */
+            --text-color: #f0f0f0; /* Light text */
+            --accent-color: #007bff; /* A vibrant blue for links/buttons */
+            --hover-color: #0056b3; /* Darker blue for hover states */
+            --border-color: #444; /* Subtle borders */
+
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px; /* For section padding */
+
+            --font-heading: 'Playfair Display', serif; /* For main titles */
+            --font-body: 'Inter', sans-serif; /* For general text */
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm); /* Horizontal padding for responsiveness */
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-color);
+            margin-top: 0; /* Reset default margins */
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* --- Header (Consistent with main site) --- */
+        .site-header {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            gap: var(--spacing-sm); /* Space between logo and nav on wrap */
+        }
+
+        .site-logo {
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .site-logo a { /* Ensure logo link is styled like text, not a button */
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .site-logo a:hover {
+            color: var(--accent-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap; /* Allows navigation items to wrap */
+            justify-content: center; /* Center items if wrapped */
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: var(--spacing-xs) 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Buttons (Consistent with main site) --- */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .primary-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .small-btn {
+            padding: 6px 12px;
+            font-size: 0.9em;
+        }
+
+        /* --- Section Styling (Consistent with main site) --- */
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-bg);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary-bg);
+        }
+
+        .bg-tertiary {
+            background-color: var(--tertiary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- About Me Specific Styles --- */
+        .about-content {
+            padding: var(--spacing-xl) 0; /* Use section-padding for consistency */
+            background-color: var(--primary-bg); /* Match body background */
+            text-align: center; /* Center align text and image container */
+        }
+
+        .about-content h1 {
+            font-size: 3em; /* Larger title for main page heading */
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .about-content p {
+            max-width: 800px; /* Use max-width for responsiveness */
+            margin: 0 auto var(--spacing-lg) auto; /* Center paragraph and add bottom margin */
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .aboutimgcontainer {
+            display: flex; /* Use flexbox for image layout */
+            flex-wrap: wrap; /* Allow images to wrap to the next line on smaller screens */
+            justify-content: center; /* Center images horizontally */
+            gap: var(--spacing-md); /* Space between images */
+            margin-top: var(--spacing-xl); /* Space above image container */
+        }
+
+        .aboutimgcontainer img {
+            max-width: 100%; /* Ensure images scale down */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Consistent rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+            object-fit: cover; /* Ensure images cover their area without distortion */
+        }
+
+        /* Specific image sizes, but still responsive */
+        .socimg {
+            width: clamp(280px, 60vw, 650px); /* Responsive width: min 280px, max 650px, fluid 60vw */
+            height: clamp(200px, 40vw, 500px); /* Responsive height */
+        }
+
+        .campimg, .gradimg {
+            width: clamp(250px, 45vw, 500px); /* Responsive width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* --- Footer (Consistent with main site) --- */
+        .site-footer {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .about-content h1 {
+                font-size: 2.5em;
+            }
+
+            .about-content p {
+                font-size: 1em;
+                margin: 0 auto var(--spacing-md) auto;
+            }
+
+            .aboutimgcontainer {
+                flex-direction: column; /* Stack images vertically on small screens */
+                align-items: center;
+            }
+
+            .socimg, .campimg, .gradimg {
+                width: 90%; /* Take up more width on small screens */
+                height: auto; /* Let height adjust */
+            }
+
+            .section-padding {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-logo {
+                font-size: 1.5em;
+            }
+
+            .about-content h1 {
+                font-size: 2em;
+            }
+
+            .about-content p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!-- Using site-logo as a link to home, consistent with your main site's structure -->
+            <h1 class="site-logo"><a href="index.html">Wafi Syed</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#intro-section">Home</a></li>
+                    <li><a href="index.html#favorite-car">Car</a></li>
+                    <li><a href="index.html#hobbies">Hobbies</a></li>
+                    <li><a href="index.html#sports">Sports</a></li>
+                    <li><a href="index.html#coding-languages">Coding</a></li>
+                    <li><a href="index.html#other-interests">Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-content">
+            <div class="container">
+                <h1>About Me</h1>
+                <p>My name is Wafi Syed, a middle, soon to be high schooler with a passion for computer science, and sports. The first traces of me coding date back to around 2017-2018 on Scratch, where I watched my Aunt, <a href="https://www.linkedin.com/in/najiah-sabzwari-735683337/" target="_blank">Najiah Sabzwari</a>, who was in highschool at the time, make a game where a witch would fly around collecting ghosts. When she asked me to try it, I was happy to, and I was amazed at how the game was made. From that point on I was eager to learn how to create my own games and websites. And after 6 years, here I am. Making the world a better place, line by line.</p>
+
+                <div class="aboutimgcontainer">
+                    <img class="socimg" src="e6fb1553-b088-4d70-94ac-8bed315dc691 (1).JPG" alt="Social gathering">
+                    <img class="campimg" src="IMG_0290 (2).jpg" alt="Camping trip">
+                    <img class="gradimg" src="IMG_6029.jpg" alt="Graduation ceremony">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wafi Syed. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

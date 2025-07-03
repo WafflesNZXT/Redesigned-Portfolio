@@ -1,0 +1,497 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- CSS Variables for Colors and Spacing --- */
+:root {
+    --primary-bg: #1a1a1a; /* Dark background */
+    --secondary-bg: #2a2a2a; /* Slightly lighter dark for sections */
+    --tertiary-bg: #333333; /* Another slightly lighter dark for contrast */
+    --text-color: #f0f0f0; /* Light text */
+    --accent-color: #007bff; /* A vibrant blue for links/buttons */
+    --hover-color: #0056b3; /* Darker blue for hover states */
+    --border-color: #444; /* Subtle borders */
+
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 80px; /* For section padding */
+
+    --font-heading: 'Playfair Display', serif; /* For main titles */
+    --font-body: 'Inter', sans-serif; /* For general text */
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); /* Horizontal padding for responsiveness */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    margin-top: 0; /* Reset default margins */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: var(--spacing-sm); /* Space between logo and nav on wrap */
+}
+
+.site-logo {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Allows navigation items to wrap */
+    justify-content: center; /* Center items if wrapped */
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 600;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--hover-color);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.small-btn {
+    padding: 6px 12px; /* Smaller padding for tighter buttons */
+    font-size: 0.9em;
+}
+
+/* --- Section Styling --- */
+.section-padding {
+    padding: var(--spacing-xl) 0; /* Consistent vertical padding for all sections */
+}
+
+.bg-primary {
+    background-color: var(--primary-bg);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-bg);
+}
+
+.bg-tertiary {
+    background-color: var(--tertiary-bg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Intro Section (Corresponds to HTML #intro-section) --- */
+#intro-section {
+    /* No additional styles here, as section-padding and bg-primary handle main visual */
+}
+
+.intro-content { /* Flex container for profile img and text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-align: center; /* Ensures text inside also centers */
+}
+
+.profile-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit:fill;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Subtle glow */
+}
+
+.intro-text h2 {
+    font-size: 2.8em;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.intro-text p {
+    font-size: 1.15em;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md) auto;
+}
+
+/* --- Favorite Car Section --- */
+.car-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.car-details h3 {
+    font-size: 2em;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Hobbies Grid --- */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+}
+
+.hobby-card {
+    background-color: var(--secondary-bg); /* Contrast with primary section bg */
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Space out content vertically */
+    border: 1px solid var(--border-color);
+}
+
+.hobbies-grid .hobby-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hobby-card img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+    border-radius: 50%;
+    background-color: var(--accent-color); /* Background for icons */
+    padding: 5px;
+}
+
+.hobby-card h3 {
+    font-size: 1.3em;
+    margin-bottom: var(--spacing-sm);
+    flex-grow: 1; /* Allow title to take space */
+}
+
+.hobby-card .fa-solid {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.card-link {
+    display: block; /* Make link a block for easier clicking */
+    font-weight: 700;
+    margin-top: auto; /* Push link to bottom */
+    padding-top: var(--spacing-xs); /* Padding above link */
+}
+
+/* --- Sports Grid --- */
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    font-size: 20px;
+}
+
+.sports-grid .fa-solid {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.sport-item {
+    background-color: var(--primary-bg); /* Contrast with tertiary background */
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.sport-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.sport-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+.sport-item h3 {
+    font-size: 1.4em;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Coding Language Grid --- */
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+}
+
+.fa-html5 {
+    color: #E34C26
+}
+
+.fa-css3-alt {
+    color: rgb(66, 69, 238);
+}
+
+.language-card {
+    background-color: var(--primary-bg); /* Contrast with secondary background */
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.language-card h3 {
+    font-size: 1.4em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--accent-color); /* Highlight language names */
+}
+
+.language-card p {
+    font-size: 0.95em;
+    color: #bbb;
+    flex-grow: 1;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Other Interests Grid (Simple layout) --- */
+.other-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.other-link-item {
+    background-color: var(--secondary-bg); /* Contrast with primary background */
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.other-link-item h3 {
+    font-size: 1.3em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.other-link-item p {
+    font-size: 0.9em;
+    color: #ccc;
+    flex-grow: 1;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .intro-text h2 {
+        font-size: 2.2em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .hobbies-grid, .sports-grid, .language-grid, .other-links-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
+
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .car-img {
+        max-width: 90%; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo {
+        font-size: 1.5em;
+    }
+
+    .intro-text h2 {
+        font-size: 1.8em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9em;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.fa-arrow-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.fa-arrow-up:hover {
+    background: #686868;
+    transition: all 0.3s;
+}

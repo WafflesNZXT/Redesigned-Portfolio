@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wafi Syed - Contact Me</title>
+    <!-- Link to the new contact-specific stylesheet -->
+    <link rel="stylesheet" href="contact-style.css">
+    <!-- Google Fonts for consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-logo"><a href="index.html">Wafi Syed</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#favorite-car">Car</a></li>
+                    <li><a href="index.html#hobbies">Hobbies</a></li>
+                    <li><a href="index.html#sports">Sports</a></li>
+                    <li><a href="index.html#coding-languages">Coding</a></li>
+                    <li><a href="index.html#other-interests">Other</a></li>
+                    <li><a href="contact.html">Contact</a></li> <!-- Link to current page's contact section -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-hero" class="section-padding bg-primary">
+            <div class="container text-center">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-description">
+                    Have a question, a project idea, or just want to say hello? Feel free to reach out using the form below or connect with me through my contact details.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="section-padding bg-secondary">
+            <div class="container">
+                <h3 class="subsection-title">Send Me a Message</h3>
+                <form action="https://formspree.io/f/mgvyqarq" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="contact-info-section" class="section-padding bg-primary">
+            <div class="container text-center">
+                <h3 class="subsection-title">Find Me Here</h3>
+                <div class="contact-details-grid">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>wafi.syed5@gmail.com</p>
+                        
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p>+1 (510) 731-8687</p>
+                        
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h4>Location</h4>
+                        <p>Hayward, CA, USA</p>
+                        
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h3 class="subsection-title" style="margin-top: var(--spacing-lg);">Connect on Social Media</h3>
+                    <a href="https://linkedin.com/in/wafisyed" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/WafflesNZXT" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <!-- Add more social links as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wafi Syed. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

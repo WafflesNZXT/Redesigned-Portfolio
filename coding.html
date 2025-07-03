@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wafi Syed - Coding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Variables for Colors and Spacing (consistent across pages) --- */
+        :root {
+            --primary-bg: #1a1a1a; /* Dark background */
+            --secondary-bg: #2a2a2a; /* Slightly lighter dark for sections */
+            --tertiary-bg: #333333; /* Another slightly lighter dark for contrast */
+            --text-color: #f0f0f0; /* Light text */
+            --accent-color: #007bff; /* A vibrant blue for links/buttons */
+            --hover-color: #0056b3; /* Darker blue for hover states */
+            --border-color: #444; /* Subtle borders */
+
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px; /* For section padding */
+
+            --font-heading: 'Playfair Display', serif; /* For main titles */
+            --font-body: 'Inter', sans-serif; /* For general text */
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm); /* Horizontal padding for responsiveness */
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-color);
+            margin-top: 0; /* Reset default margins */
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* --- Header (Consistent across pages) --- */
+        .site-header {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .site-logo {
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .site-logo a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .site-logo a:hover {
+            color: var(--accent-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: var(--spacing-xs) 0;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Buttons (Consistent across pages) --- */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .primary-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .small-btn {
+            padding: 6px 12px;
+            font-size: 0.9em;
+        }
+
+        /* --- Section Styling (Consistent across pages) --- */
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .bg-primary {
+            background-color: var(--primary-bg);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary-bg);
+        }
+
+        .bg-tertiary {
+            background-color: var(--tertiary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Coding Page Specific Styles --- */
+        .coding-content {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-bg);
+            text-align: center; /* Center align text and image container */
+        }
+
+        .coding-content h1 {
+            font-size: 3em;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .coding-content p {
+            max-width: 800px; /* Responsive width for paragraph */
+            margin: 0 auto var(--spacing-lg) auto; /* Center paragraph */
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .codingimgs {
+            display: flex; /* Use flexbox for image layout */
+            flex-wrap: wrap; /* Allow images to wrap to the next line */
+            justify-content: center; /* Center images horizontally */
+            gap: var(--spacing-md); /* Space between images */
+            margin-top: var(--spacing-xl); /* Space above image container */
+        }
+
+        .codingimgs img {
+            max-width: 100%; /* Ensure images scale down */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Consistent rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+            object-fit: cover; /* Ensure images cover their area without distortion */
+            margin-top: 0; /* Reset original margin-top */
+            margin-left: 0; /* Reset original margin-left */
+        }
+
+        /* Specific image dimensions, made responsive */
+        .codeimg1 {
+            width: clamp(300px, 90vw, 1200px); /* Adjust max-width for very large image */
+            height: auto; /* Let height adjust */
+            /* You might want to constrain max-height for large images to prevent them from dominating */
+            max-height: 800px; /* Example max-height */
+            object-fit: contain; /* Use contain if the image content is crucial and shouldn't be cropped */
+        }
+
+        .codeimg3 {
+            width: clamp(280px, 45vw, 630px);
+            height: clamp(200px, 35vw, 490px);
+        }
+
+        .codeimg4 {
+            width: clamp(280px, 45vw, 700px);
+            height: clamp(200px, 35vw, 550px);
+        }
+
+        .codeimg5 {
+            width: clamp(280px, 45vw, 750px);
+            height: clamp(200px, 35vw, 550px);
+        }
+        
+        /* For images meant to be side-by-side but might have different original aspect ratios */
+        /* If codeimg3/4/5 should have similar heights when side-by-side: */
+        /* .codeimg3, .codeimg4, .codeimg5 {
+            flex: 1; 
+            min-width: 280px; /* Allow them to shrink, but not below this */
+            max-width: 500px; /* Or specific max width */
+            height: 350px; /* Fixed height for consistent rows, will use object-fit: cover; */
+        } */
+
+
+        /* --- Footer (Consistent across pages) --- */
+        .site-footer {
+            background-color: var(--secondary-bg);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .coding-content h1 {
+                font-size: 2.5em;
+            }
+
+            .coding-content p {
+                font-size: 1em;
+                margin: 0 auto var(--spacing-md) auto;
+            }
+
+            .codingimgs {
+                flex-direction: column; /* Stack images vertically on small screens */
+                align-items: center;
+                gap: var(--spacing-lg); /* More space when stacked */
+            }
+
+            .codingimgs img {
+                width: 90%; /* Take up more width on small screens */
+                height: auto; /* Let height adjust */
+            }
+
+            .section-padding {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-logo {
+                font-size: 1.5em;
+            }
+
+            .coding-content h1 {
+                font-size: 2em;
+            }
+
+            .coding-content p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-logo"><a href="index.html">Wafi Syed</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#intro-section">Home</a></li>
+                    <li><a href="index.html#favorite-car">Car</a></li>
+                    <li><a href="index.html#hobbies">Hobbies</a></li>
+                    <li><a href="index.html#sports">Sports</a></li>
+                    <li><a href="#top-of-page">Coding</a></li> <li><a href="index.html#other-interests">Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="coding-content" id="top-of-page">
+            <div class="container">
+                <h1>Coding</h1>
+                <p>A lot of my time is spent on coding. I use HTML to build pages and CSS to make them look nice and be compatible with different screen sizes. Coding with Luau is another section, which I use to create fun and interactive games using Roblox Studio for others to play. I enjoy using my skills to help others, like when I helped to make a website for my school's volunteering club to help them get organized. One of my most useful projects was a website where people can check the weather, made using a weather API. Checkout my <a href="about.html">About Page</a> for more on my coding history.</p>
+
+                <div class="codingimgs">
+                    <img class="codeimg1" src="Screenshot_30-6-2025_23259_wafflesnzxt.github.io.jpeg" alt="Screenshot of a website code">
+                    <img class="codeimg3" src="Basic CheckpointScript.PNG" alt="Screenshot of a basic checkpoint script">
+                    <img class="codeimg4" src="Basic DataSaving Script.PNG" alt="Screenshot of a basic data saving script">
+                    <img class="codeimg5" src="DeathScreen LocalScript.PNG" alt="Screenshot of a death screen local script">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wafi Syed. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
